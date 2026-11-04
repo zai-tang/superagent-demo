@@ -1,6 +1,6 @@
 import unittest
 
-from textstats import top_words, unique_words, word_count
+from textstats import char_count, top_words, unique_words, word_count
 
 
 class WordCountTest(unittest.TestCase):
@@ -15,6 +15,23 @@ class WordCountTest(unittest.TestCase):
 
     def test_punctuation_stays_attached(self):
         self.assertEqual(word_count("hello, world!"), 2)
+
+
+class CharCountTest(unittest.TestCase):
+    def test_counts_characters(self):
+        self.assertEqual(char_count("hello"), 5)
+
+    def test_empty_text(self):
+        self.assertEqual(char_count(""), 0)
+
+    def test_ignores_whitespace(self):
+        self.assertEqual(char_count("  hello \n\tworld  "), 10)
+
+    def test_only_whitespace(self):
+        self.assertEqual(char_count(" \n\t "), 0)
+
+    def test_counts_punctuation(self):
+        self.assertEqual(char_count("hello, world!"), 12)
 
 
 class UniqueWordsTest(unittest.TestCase):

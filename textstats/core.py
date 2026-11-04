@@ -17,6 +17,11 @@ def word_count(text: str) -> int:
     return len(_split(text))
 
 
+def char_count(text: str) -> int:
+    """Return the number of characters in text, ignoring whitespace."""
+    return sum(1 for char in text if not char.isspace())
+
+
 def unique_words(text: str) -> set[str]:
     """Return the set of distinct words in text."""
     return set(_split(text))
