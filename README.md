@@ -9,8 +9,9 @@ it easy to see whether the agent produced a reviewable result.
 ## Usage
 
 ```python
-from textstats import word_count, unique_words, top_words
+from textstats import char_count, word_count, unique_words, top_words
 
+char_count("hello world")           # 10
 word_count("hello hello world")     # 3
 unique_words("Hello hello world")   # {"hello", "world"}
 top_words("a b a c a", 2)           # [("a", 3), ("b", 1)]
